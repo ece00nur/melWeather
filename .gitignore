@@ -1,0 +1,15 @@
+.gradle/
+.idea/
+.kotlin/
+build/
+app/build/
+local.properties
+*.iml
+captures/
+
+# Derlenmiş uygulamalar ve imza anahtarları
+app/release/
+*.apk
+*.aab
+*.jks
+*.keystore

@@ -1,0 +1,12 @@
+<resources>
+    <!-- App color palette (tasarımdaki palet) -->
+    <color name="mel_ink">#0D090B</color>
+    <color name="mel_coal">#2C2325</color>
+    <color name="mel_mauve">#544547</color>
+    <color name="mel_dusty">#826A6E</color>
+    <color name="mel_rose">#C09CA3</color>
+    <color name="mel_snow">#FCFBFB</color>
+
+    <color name="widget_bg">#D3B8BD</color>
+    <color name="widget_text_dark">#141012</color>
+</resources>

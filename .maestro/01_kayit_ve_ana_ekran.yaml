@@ -1,0 +1,37 @@
+﻿appId: com.example.havadurumuapp
+---
+# Kayıt ol → ana ekran → paylaşılan anlar ekranı → geri → çıkış
+- launchApp:
+    clearState: true
+- assertVisible: "MelWeather"
+- tapOn:
+    id: "auth_switch"
+- assertVisible: "Hesap Oluştur"
+- tapOn:
+    id: "username"
+- inputRandomText
+- tapOn:
+    id: "password"
+- inputText: "123456"
+- hideKeyboard
+- tapOn:
+    id: "auth_button"
+# Konum izni penceresi çıkarsa izin ver
+- tapOn:
+    text: "While using the app|Uygulamayı kullanırken"
+    optional: true
+- extendedWaitUntil:
+    visible: "Hourly Forecast"
+    timeout: 20000
+- assertVisible:
+    id: "city_name"
+- tapOn:
+    id: "moments_button"
+- assertVisible:
+    id: "back_button"
+- tapOn:
+    id: "back_button"
+- tapOn:
+    id: "avatar"
+- tapOn: "Çıkış Yap"
+- assertVisible: "Giriş Yap"

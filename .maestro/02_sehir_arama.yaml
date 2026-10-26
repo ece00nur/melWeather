@@ -1,0 +1,36 @@
+﻿appId: com.example.havadurumuapp
+---
+# Kayıtlı kullanıcıyla giriş yapıp şehir arar
+- launchApp:
+    clearState: true
+- tapOn:
+    id: "auth_switch"
+- tapOn:
+    id: "username"
+- inputRandomText
+- tapOn:
+    id: "password"
+- inputText: "123456"
+- hideKeyboard
+- tapOn:
+    id: "auth_button"
+- tapOn:
+    text: "While using the app|Uygulamayı kullanırken"
+    optional: true
+- extendedWaitUntil:
+    visible: "Hourly Forecast"
+    timeout: 20000
+- tapOn:
+    id: "search_field"
+- inputText: "Ankara"
+- extendedWaitUntil:
+    visible: "Ankara"
+    timeout: 10000
+- tapOn:
+    text: "Ankara"
+    index: 1
+- extendedWaitUntil:
+    visible:
+      id: "city_name"
+      text: "Ankara"
+    timeout: 15000

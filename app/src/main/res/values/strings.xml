@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MelWeather</string>
+    <string name="widget_description">Son çektiğin fotoğraf, şehir ve anlık hava durumu</string>
+</resources>

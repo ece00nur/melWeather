@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "235919763589",
+    "project_id": "havadurumu-b9b79",
+    "storage_bucket": "havadurumu-b9b79.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235919763589:android:c44eec6b8c442a7749a1ec",
+        "android_client_info": {
+          "package_name": "com.example.havadurumu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXAThtBrXCBxRrQZ2Nk4Jr1Ho0OwSXqdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235919763589:android:7a05278e326ffe0b49a1ec",
+        "android_client_info": {
+          "package_name": "com.example.havadurumuapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXAThtBrXCBxRrQZ2Nk4Jr1Ho0OwSXqdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
