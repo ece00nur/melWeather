@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_login">
+
+    <!-- Camın gerçekten bulanıklaştıracağı gerçek fotoğraf arka planı -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_photo_sky" />
+
+    <!-- Üstteki yazının okunurluğu için hafif karartma -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#4D000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="36dp"
+            android:fontFamily="sans-serif-light"
+            android:shadowColor="#40000000"
+            android:shadowDy="2"
+            android:shadowRadius="6"
+            android:text="MelWeather"
+            android:textColor="#FCFBFB"
+            android:textSize="28sp" />
+
+        <!-- Gerçek blur'lu, neon kenarlı cam giriş kartı -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_pink_glow" />
+
+            <eightbitlab.com.blurview.BlurView
+                android:id="@+id/blurGiris"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_frosted_outline_clip"
+                android:clipToOutline="true"
+                android:elevation="10dp"
+                android:foreground="@drawable/bg_frosted_rim">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="26dp">
+
+            <TextView
+                android:id="@+id/tvBaslik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
+                android:gravity="center"
+                android:text="Giriş Yap"
+                android:textColor="#F2EFF7"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etKullaniciAdi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_pill_input_light"
+                android:hint="  Kullanıcı Adı"
+                android:inputType="text"
+                android:maxLines="1"
+                android:textColor="#F2EFF7"
+                android:textColorHint="#9A93AE" />
+
+            <EditText
+                android:id="@+id/etSifre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_pill_input_light"
+                android:hint="  Şifre"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:textColor="#F2EFF7"
+                android:textColorHint="#9A93AE" />
+
+            <TextView
+                android:id="@+id/tvHata"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="#D32F6B"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:indeterminate="true"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnGiris"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/bg_pill_primary"
+                android:text="Giriş Yap"
+                android:textAllCaps="false"
+                android:textColor="#FCFBFB" />
+
+            <Button
+                android:id="@+id/btnKayit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:background="@android:color/transparent"
+                android:text="Hesabın yok mu? Hemen bir tane oluştur."
+                android:textAllCaps="false"
+                android:textColor="#C09CA3" />
+        </LinearLayout>
+            </eightbitlab.com.blurview.BlurView>
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

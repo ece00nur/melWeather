@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_photo_sky"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:text="🖼️  Widget arka planını seç"
+        android:textColor="#F2EFF7"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="22dp"
+        app:cardElevation="2dp">
+
+        <ImageView
+            android:id="@+id/ivOnizleme"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="#CFD8DC"
+            android:scaleType="centerCrop" />
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnKamera"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_pill_input_light"
+            android:text="📸 Kamera"
+            android:textAllCaps="false"
+            android:textColor="#F2EFF7" />
+
+        <Button
+            android:id="@+id/btnGaleri"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_pill_input_light"
+            android:text="🖼️ Galeri"
+            android:textAllCaps="false"
+            android:textColor="#F2EFF7" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnEkle"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bg_pill_primary"
+        android:text="Widget'ı Ekle"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btnVarsayilan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/transparent"
+        android:text="Fotoğrafsız, varsayılan görünümle ekle"
+        android:textAllCaps="false"
+        android:textColor="#FF8AD6" />
+</LinearLayout>

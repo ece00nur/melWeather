@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="18dp">
+
+    <!-- Üst bar: kullanıcı adı + çıkış -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvKullanici"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#F2EFF7"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCikis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Çıkış"
+            android:textAllCaps="false"
+            android:textColor="#FF8AD6" />
+    </LinearLayout>
+
+    <!-- Arama satırı -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/etSehir"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_pill_input_light"
+            android:hint="  🔍  Şehir ara"
+            android:imeOptions="actionSearch"
+            android:inputType="textCapWords"
+            android:maxLines="1"
+            android:textColor="#F2EFF7"
+            android:textColorHint="#9A93AE" />
+
+        <Button
+            android:id="@+id/btnAra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_pill_accent"
+            android:paddingStart="18dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="12dp"
+            android:text="Ara"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnKonum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_pill_input_light"
+        android:text="📍  Konumumu kullan"
+        android:textAllCaps="false"
+        android:textColor="#F2EFF7" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tvDurum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#B6AFC9"
+        android:textSize="12sp" />
+
+    <!-- Anlık hava — neon kenarlı, blur'lu cam kart -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:padding="12dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_pink_glow" />
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurHava"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_frosted_outline_clip"
+            android:clipToOutline="true"
+            android:elevation="8dp"
+            android:foreground="@drawable/bg_frosted_rim">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="22dp">
+
+            <TextView
+                android:id="@+id/tvSehir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Konum bekleniyor…"
+                android:textColor="#F2EFF7"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvIkon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="60sp" />
+
+            <TextView
+                android:id="@+id/tvSicaklik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:textColor="#F2EFF7"
+                android:textSize="52sp" />
+
+            <TextView
+                android:id="@+id/tvAciklama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#C9C2DC"
+                android:textSize="17sp" />
+
+            <!-- Chip satırı: nem / rüzgar / basınç -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvNem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_chip"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:textColor="#F2EFF7"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvRuzgar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_chip"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:textColor="#F2EFF7"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvBasinc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_chip"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:textColor="#F2EFF7"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="8dp"
+                android:text="Saatlik Tahmin"
+                android:textColor="#C9C2DC"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/llSaatlik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/tvKaynakBilgi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp"
+                android:textColor="#9A93AE"
+                android:textSize="11sp" />
+        </LinearLayout>
+        </eightbitlab.com.blurview.BlurView>
+    </FrameLayout>
+
+    <!-- 5 günlük tahmin — neon kenarlı, blur'lu cam kart -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:padding="12dp">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_pink_glow" />
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurTahmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_frosted_outline_clip"
+            android:clipToOutline="true"
+            android:elevation="6dp"
+            android:foreground="@drawable/bg_frosted_rim">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="5 Günlük Tahmin"
+                android:textColor="#F2EFF7"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTahmin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="6dp"
+                android:textColor="#C9C2DC"
+                android:textSize="14sp" />
+        </LinearLayout>
+        </eightbitlab.com.blurview.BlurView>
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="4dp"
+        android:text="📷  Gökyüzü Akışı"
+        android:textColor="#F2EFF7"
+        android:textSize="17sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:padding="12dp"
+        android:visibility="gone"
+        android:id="@+id/blurFeedBosKapsayici">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_pink_glow" />
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurFeedBos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_frosted_outline_clip"
+            android:clipToOutline="true"
+            android:foreground="@drawable/bg_frosted_rim">
+
+        <TextView
+            android:id="@+id/tvFeedBos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="Henüz paylaşım yok. İlk gökyüzü fotoğrafını sen paylaş!"
+            android:textColor="#C9C2DC" />
+        </eightbitlab.com.blurview.BlurView>
+    </FrameLayout>
+</LinearLayout>

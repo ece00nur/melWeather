@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tasarım panosundaki MelWeather paleti -->
+    <color name="palette_siyah">#0d090b</color>
+    <color name="palette_koyu">#2c2325</color>
+    <color name="palette_kahve">#544547</color>
+    <color name="palette_mat_gul">#826a6e</color>
+    <color name="palette_toz_pembe">#c09ca3</color>
+    <color name="palette_beyaz">#fcfbfb</color>
+</resources>
