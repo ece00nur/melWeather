@@ -57,6 +57,9 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.layout.Row
+import com.example.havadurumuapp.data.PasswordStrengthLevel
+import com.example.havadurumuapp.data.evaluatePassword
 
 /** Ekran 1 (Giriş Yap) ve Ekran 2 (Hesap Oluştur). */
 @Composable
@@ -145,6 +148,10 @@ private fun AuthCard(
             password, { password = it; error = null }, "Şifre", tag = "password",
             isPassword = true, onDone = { submit() },
         )
+        if (isRegister && password.isNotEmpty()) {
+            Spacer(Modifier.height(8.dp))
+            PasswordStrengthIndicator(password)
+        }
         Spacer(Modifier.height(12.dp))
         error?.let {
             Text(it, color = Color(0xFFFFB4BE), fontSize = 12.sp, textAlign = TextAlign.Center)
@@ -174,6 +181,43 @@ private fun AuthCard(
         ) {
             if (busy) CircularProgressIndicator(color = Snow, strokeWidth = 2.dp, modifier = Modifier.size(16.dp))
             else Text(title, color = Snow.copy(alpha = .9f), fontSize = 13.sp)
+        }
+    }
+}
+
+@Composable
+private fun PasswordStrengthIndicator(password: String) {
+    val strength = remember(password) { evaluatePassword(password) }
+    val color = when (strength.level) {
+        PasswordStrengthLevel.ZAYIF -> Color(0xFFFF6B6B)
+        PasswordStrengthLevel.ORTA -> Color(0xFFFFC96B)
+        PasswordStrengthLevel.GUCLU -> Color(0xFF7BE0A8)
+    }
+    Column(Modifier.fillMaxWidth().testTag("password_strength")) {
+        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+            repeat(3) { i ->
+                val filled = when (strength.level) {
+                    PasswordStrengthLevel.ZAYIF -> i == 0
+                    PasswordStrengthLevel.ORTA -> i <= 1
+                    PasswordStrengthLevel.GUCLU -> true
+                }
+                Box(
+                    Modifier
+                        .weight(1f)
+                        .height(4.dp)
+                        .clip(RoundedCornerShape(2.dp))
+                        .background(if (filled) color else Snow.copy(alpha = .15f)),
+                )
+            }
+        }
+        Spacer(Modifier.height(4.dp))
+        Text("Şifre gücü: ${strength.level.label}", color = color, fontSize = 11.sp)
+        if (strength.missing.isNotEmpty()) {
+            Text(
+                "Eksik: ${strength.missing.joinToString(", ")}",
+                color = Snow.copy(alpha = .6f),
+                fontSize = 10.sp,
+            )
         }
     }
 }

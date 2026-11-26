@@ -59,6 +59,10 @@ object Cloud {
 
     suspend fun register(name: String, pass: String): String? {
         validate(name, pass)?.let { return it }
+        val strength = evaluatePassword(pass)
+        if (strength.level == PasswordStrengthLevel.ZAYIF) {
+            return "Şifre zayıf. Eksik: ${strength.missing.joinToString(", ")}"
+        }
         return try {
             val result = auth.createUserWithEmailAndPassword(email(name), pass).await()
             result.user?.updateProfile(userProfileChangeRequest { displayName = name.trim() })?.await()
